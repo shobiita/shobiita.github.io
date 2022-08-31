@@ -1,0 +1,220 @@
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* In the above '*' container, I added a scroll-behavior tag to enhance and create a satisfying user experience. After reading a couple articles provided in the modules channel, I thought it would be a good element to add. Though visually not noticable, you can feel the satisfaction when you click on the navigational tab buttons. Essentially, when a user clicks on 'Discography' or any of the buttons, it will scroll smoothly to that sector without having a harsh jump. Overall adding a flowing, easy and familiar feel. */
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  /* This here is my colour palette for this exercise. Initially, I was going for a more naturesque green theme, however that changed as I gravitated towards more purple-blue hues. After some individual research, It came to an understanding that colours that complimented white-black interface were pink and blue, so essentially I went for the colour located right in the center which was purple. Purple and Blue colours resonate a more endearing and fun feeling when grouped together, this played into my concept of a bubbly light-hearted visual experience of my webpage design */
+  --col-01:#000000;
+  --col-02:#ffffff;
+  --col-03:#5900a1;
+  --col-04:#9e6fc5;
+  --col-05:#3cbbe2;
+  --col-06:#02338d;
+}
+
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+  transition: color ease-in ;
+}
+
+.content-box{
+  text-align: center;
+  font-size:30px;
+}
+/* The content box above was to ensure the navigational tabs was horizontal and centered directly in the middle.*/
+
+#activeButton{
+  border-radius: 23px;
+  border: var(--col-04) 30px;
+  background-color: var(--col-04);
+  display:block 100%;
+  font-size: 22px;
+  padding: 16px;
+}
+
+/* I used 'activeButton' tag in css to add borders and background colours to each individual tabs located in the header. From the above, it is visible that by adding a border-radius I was attempting to make the tabs curved over straight cut. Additionaly, I made the colours of the indivdiual tabs a light pastel purple to compliment the dark background in 'h1'. This came into play of my bubbly theme. Overall, this was to ensure the appearance was attractive, clean and cohesive. The border outline and background were also the same colour. I didn't want to make the border outline a different colour to the background colour as from my perspective it looked jarring and messy, unappealing to the eyes. I made the padding to 16px so the border appeared more thicker and full. This section was also used to make the tab font size larger or smaller, depending on the final look of the interface  */
+
+a:hover {
+  animation: colourCycle 2s infinite ;
+}
+
+@keyframes colourCycle{
+  0% {
+    color: var(--col-05);
+    font-size: 34px;
+  }
+
+  50%{
+    color: var(--col-03);
+  }
+
+  100%{
+    color: var(--col-06);
+    font-size: 34px;
+  }
+}
+
+/* The 'a:hover' was used to add an animation to the tabs, so whenever a user hovered above the buttons there was a colour animation on the writing with hyperlinks. By doing so, they were introduced multiple hues of purple and blue. With this, I used 3 different colour mainly on the darker end of the spectrum within the colour palette to ensure the writing would be visible in both white and dark mode context. I also added a font size change between 0% to when the animation began to the ending 100% to make the tabs when hovered large and clearly visible.*/
+
+#modeButton{
+  text-align: center;
+  border-radius: 10px;
+  border: #000000 solid;
+}
+
+/* As for the 'modeButton', which is used to transfer between light and dark mode. I made this button 20px smaller than the tabs button, this was to ensure a clean and organised interface. Note this button is located directly aligned, underneath the tabs button, this is to seperate the navigational bar buttons (which directs you to different sections of the page) from the light-dark mode button. I wanted to ensure that the navigational tabs stayed in one row and the switch modeButton in another, this was overall to help keep the interface appear organised and seperated from the functions and content. */
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 7rem;
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 30px;
+  border: solid var(--col-03);
+  background-color: var(--col-03);
+}
+/* Above is the 'h1' container for the main heading 'Haruomi Hosono'. To add a distinct element, I added a border with a 30px radius for a curved edge border. I ensured the colour of the border and background resembled the main colours within my colour palette. I chose a deep purple as both the background and border colour to highlight the aesthetics of my webpage design. I increased the sizing of the heading and made the colour of the heading white to mix well and contrast with both light and dark mode interface. */
+
+/* Below lies the first circle animation which is located mainly on the left-hand side of the webpage. The tags below determine the sizing, colour, position, duration and direction of the animation. By using the Canva Week 6 Module readings, the W3S animation tool came in clutch to give me a guideline and general structure of the animation I was attempting to create. I followed the guidelines and did the pre-tutorial on the website provided. Through multiple attempts I became confident to start making modifications, It is good to note that the initial tutorials only gave guidelines for a square animations and to alter this I needed to make modifications to the radius of the square. I made both animations circular, keeping up to the bubbly endearing aesthetic of my interface. By making the width and height the same size, it would generally allow me to change the overall size of the geometric shape without stretching out one side or the other. The size of the initial square was 375p, however, with the border-radius the same 375px, the outcome came to a circle of that paticular size. I wanted to ensure that the animation was -1 on the z-index so it didn't overlap the content on the page. I wanted these circles to come into play to add a distinct background characteristic not overlap the information on the webpage. In this container, I adjusted the duration of the animation to make it 8 seconds long,these 8 seconds were divided by percentages in the 'keyframes' sections, seperated by 5 25% points. This allowed me to change colour and direction of the animation at a particular percent point. The direction was also on alternate-reverse, meaning it would do a 8 second loop then reverse going the backwards direction. The iteration count was also endless, allowing the 8 second loop animation to be infinite.*/
+#animate1{
+  width: 375px;
+  height: 375px;
+  border-radius: 375px;
+  background-color: #9e6fc5;
+  position: absolute;
+  animation-name: animate1;
+  animation-duration: 8s;
+  z-index: -1;
+  margin-top: auto;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+/* The keyframes targetting the 'animate1' animation, assisted me to construct the movement and colouring on the animation. As you can see on my webpage, the circle located on the left hand side going in a square direction is the 'animate1' animation. Essentially, throughout the 8 second duration of the animation, each movement is categorised by different percentage keyframe points. For example: At 50% which is 4 seconds, the circle is a light purple shade with a left and top of 250px, whilst when at 100% the circle has completed the first square loop, marking the 8 second point with a black shading. Essentially the percentage points correlate with the duration and direction, depending on a percentage point the shape is in a certain movement during the 8 second time scope, as this travels to another percent point the movement and colour begins to change to complete the final 8 second loop. In terms of the colours used within this animation, I went for a mix-match between black, grey, different blue hues and a light purple. I felt as though the transition between the colours flowed well together whilst not clashing with heading border. The colours to me looked the best complimented together for both the light and dark mode webpages. */
+@keyframes animate1{
+  0% {background-color:darkgray; left:0px; top:0px}
+  25% {background-color:#6f9ec5; left:250px; top:0px}
+  50% {background-color:#723f9c; left:250px; top:250px}
+  75% {background-color:#3cbbe2; left:0px; top:250px}
+  100% {background-color:#000000; left:0px; top:0px}
+}
+
+/* Similar to animate 1, animate 2 has the same functions. However, the clear difference in these to animations is the position and direction. After doing indivdiual research, I found that the position:fixed allows the animation to be located on the right hand side. I didn't want both animation to be going the same direction in the same positon because essentially nothing would have changed. By giving 'animate2' a fixed position it was relocated to the right hand side of the webpage. The animation direction is also alternate, this was to ensure the animation was playing alternativly and not just going directly reverse like the previous animation. This was also to differentiate the animations from one another despite their duplicated colouring and sizing.  */
+#animate2{
+  width: 375px;
+  height: 375px;
+  border-radius: 375px;
+  background-color: #9e6fc5;
+  position: fixed;
+  animation-name: animate2;
+  animation-duration: 8s;
+  z-index: -1;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Just as 'animate1', the colour palette remained the same to create a cohesive visual environment. This was to ensure the experience of the animation wasn't overwhelming or jarring. The only difference in this CSS is that direction of the elements. In 'animate1', the animation was only going left and top, however, in 'animate2' the animation is corrispondingly going right and top. This was to ensure that the animation goes in the opposite direction and position from the first animation. Essentially, there would be no purpose for a second element if they were on the same side, going the same direction */
+@keyframes animate2{
+  0% {background-color:darkgray; right:0px; top:0px}
+  25% {background-color:#6f9ec5; right:250px; top:0px}
+  50% {background-color:#723f9c; right:250px; top:250px}
+  75% {background-color:#3cbbe2; right:0px; top:250px}
+  100% {background-color:#000000; right:0px; top:0px}
+}
+
+h2{
+  font-size: 2rem;
+  color: #360361;
+}
+
+/* The last adjustment I made to the webpage was modify the individual heading the information (h2) to a different colour. I made the second headings a dark purple colour to resemble an almost black. However, to ensure this stands out from the regular information I made sure the colour was slightly adjusted to tint a purplish-black.*/
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion){
+  a:hover {
+    animation:none
+  }
+}
