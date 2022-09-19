@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'HeydingsControlsRegular';
+    src: url('fonts/heydings_controls-webfont.eot');
+    src: url('fonts/heydings_controls-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/heydings_controls-webfont.woff') format('woff'),
+         url('fonts/heydings_controls-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+  background: rgb(0, 0, 0);
+}
+/* I made the background colour of the webpage black as I wanted to go for a more simplistic and clean cut look. */
+/* Initially, I had a black to make a burgundy to black gradient with a grid that moves. However, in my perspective I thought it would be overwhelming and distract users from the actual content in display. It would essentially better for everyone including people with photosensitive epilepsy to have a main focual point on the video itself without a jarring background. */
+
+video {
+  border-radius: 14px;
+  align-content: center;
+}
+
+
+p {
+  position: absolute;
+  top: 310px;
+}
+
+.player {
+  max-width:100%;
+}
+
+
+#media {
+  max-width: 90%;
+  left: -50%;
+  margin-top: 90px; 
+  padding: 2px;
+  align-content: center;
+  margin-left: 50vw; 
+  display: block;
+  margin:center;
+  transform: translate(-50%);
+}
+/* This is the CSS for the Music Video. I altered the max-width to 90% as I did not want the whole page to be filled by the content as it is unpleasant and overwhelming. */
+/* Additionally, I added some changes in the margin and padding to get the media to the exact location and placement I wanted it to be in. */
+
+.video-controls {
+  display: block;
+  visibility: hidden;
+  opacity: 0.5;
+  width: 400px;
+  margin-top: -60px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  transition: 1s all;
+  display: flex;
+}
+
+/* Above is the CSS for the video controls. There wasn't much modifications implemented into this except for the placement through the margin function and elimination of the box-shadowing and colouring involved. Like stated previously, I wanted to create a very simplistic controls function that enable users to purely focus on the content being displayed. I didn't want the design of my background and video-controls to be the center of attention. */
+
+.audio-controls {
+  visibility: hidden;
+  opacity: 1;
+  width: 400px;
+  border-radius: 10px;
+  position: absolute;
+  background-color: black;
+  box-shadow: 3px 3px 5px black;
+  transition: 1s all;
+  display: flex;
+  
+}
+
+/*  I got rid of most of the box-shadow elements as I felt like they did not suit well in the environment I was attempting to create. */
+button, .controls {
+  background: linear-gradient(to bottom,rgb(0, 0, 0),rgb(0, 0, 0));
+  border-radius: 20px;
+}
+
+/* The main colour theme was black with accents of colours involved in the Music Video as supporting colours. I wanted to make everything black except for the buttons. */
+/* I wanted to display a change in opacity so when users click away from the controls button, the buttons become less visible to a point they are still visible but just more immersed in the background. When a user does hover over the control buttons, the buttons become visible straight away.   */
+/* As the icons were still white, they are still visible amongst the black background so users would still be able to see the icons. */
+/* The accent colours I used was mainly Burgundy, a mix of purple, pink and red. */
+.player:hover .controls, player:focus .controls {
+  opacity: 10;
+}
+
+ 
+button:before {
+  font-family: HeydingsControlsRegular;
+  font-size: 20px;
+  position: relative;
+  content: attr(data-icon);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 0px black;
+}
+
+.play:before {
+  font-size: 22px;
+}
+
+
+button, .timer {
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  line-height: 19px;
+  
+}
+
+button {
+  position: relative;
+  border: 0;
+  flex: 1;
+  outline: none;
+}
+
+.play {
+  border-radius: 10px 0 0 10px;
+}
+
+.fwd {
+  border-radius: 0 10px 10px 0;
+}
+
+.timer {
+  line-height: 38px;
+  font-size: 10px;
+  font-family: monospace;
+  text-shadow: 1px 1px 0px black;
+  color: white;
+  flex: 5;
+  position: relative;
+}
+
+/* I changed the colour of the timeline to a greyish purple. */
+.timer div {
+  position: absolute;
+  background-color: rgba(78, 68, 76, 0.678);
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 38px;
+  z-index: 2;
+}
+
+.timer span {
+  position: absolute;
+  z-index: 3;
+  left: 30px;
+}
+
+button:hover,button:focus {
+  box-shadow: inset 1px 1px 2px black;
+}
+
+button:active {
+  box-shadow: inset 3px 3px 2px black;
+}
+
+.active:before {
+  color: rgb(170, 28, 87);
+}
+/* This was the main accent colour in which if users want to fast-forward or rewind the video, the burgundy like colour would appear on the icon. */
