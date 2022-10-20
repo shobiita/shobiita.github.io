@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+
+    <!-- Initially, I was planning to make visualises that occur when you hover or click on them, paired with a night sky background. However, after experimenting, I  found it difficult and almost impossible to separate the audio from the visualisers. The audio-visualisers came in a pair so it felt like I didn't have much control over the situation. Considering the visualisers were also shown on a plain canvas I thought it would be difficult to implement a background change.
+    This made me want to go for my second option and generate random stars as the background paired with either a png of a tree or a building with fireworks occurring simultaneously. I managed to follow through with my second option but my plans for making a stop-and-start button through either CSS or JS ended up failing. All my codes were correct but I did think due to the unalarming amount of content and elements in my workplace, my laptop was unable to handle any more functional elements.
+     I ended up replacing the start-and-stop button idea with a hover element which I created on CSS   -->
+
+    <body>  
+      <h1 id="text"> hover over the fireworks to make them pause or refresh the page to see the stars in another view!</h1> 
+      <!-- The h1 function itself wasn't working, so I added an H1 ID for CSS to recognise the function  better -->
+      <script src="script.js"></script>
+
+      <div class= "trees"></div>   
+        <!-- I was initially conflicted between going for my self-made mountain png and/or a png of New York City. However, after going back and forth I ended up selecting the PNG of a Tree I found on PixaBay as it suited the atmosphere I was going for the best -->
+        <!-- Tree-branches-silhouette-trunk from Pixabay - > License Free for commercial use No attribution required -->
+         
+      <div class = "star"></div>
+      <!-- This is the div class used for the stars in the background that change every time the page is refreshed -->
+
+      <!-- Below are my 9 firework bursts. I used a div class category to place each of the fireworks seperatley in their placement and with different timing. All the fireworks were under one name 'fireworks' so the animation remained consistent and was categorised as a whole in the style.css.  -->
+      <div class="fireworks" style="left: 15%; top: 5%;"></div>
+      <div class="fireworks" style="right: 30%; top: 13%; animation-delay: -0.4s;"></div>
+      <div class="fireworks" style="left: 5%; top: 43%; animation-delay: -1.7s;"></div>
+      <div class="fireworks" style="right: 87%; top: 18%; animation-delay: -3.1s;"></div>>
+      <div class="fireworks" style="left: 15%; top: 63%;"></div>
+      <div class="fireworks" style="right: 10%; top: 13%; animation-delay: -7.4s;"></div>
+      <div class="fireworks" style="right: 5%; top: 40%; animation-delay: -17.4s;"></div>
+      <div class="fireworks" style="right: 20%; top: 79%; animation-delay: -12.7s;"></div>
+      <div class="fireworks" style="right: 35%; top: 28%; animation-delay: -15.1s;"></div>>
+
+      <!-- As you can see all the fireworks are different in terms of positioning and occur at a certain time after another firework has taken place. The animation-delay element was used to produce the fireworks after another has occured -->
+    </body>
+</html>
+
+
+
+

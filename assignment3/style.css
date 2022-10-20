@@ -1,0 +1,165 @@
+html,body{
+    margin: 0;
+    overflow: hidden; 
+    /* animation: animate 15s ease-in infinite;  */
+    background: rgb(0, 0, 0);
+    background: linear-gradient(to bottom, #000000 0%, #52009e 100%);
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}
+/* As you can see from the 'Html, body', I established a black-to-purple gradient as the background for the website. The other comment showing the 'animate' code was used to create a colour-changing background with the use of keyframes. However, after comparing the gradient background to the colour-changing background, I concluded that I preferred a more stable fade look over a multi-changing background on the website. I thought that the animated background would overall look jarring and add an overwhelming factor that can take away from the initial design of the interaction. */
+
+
+#text{
+    color: rgb(215, 159, 253);
+    outline: black;
+    font-size: medium;
+    text-align: center;
+    font-family:sans-serif;
+    z-index: 1;
+    position: relative;
+    top: 100px;
+}
+/* The text that is located in the centre of the webpage is a light purple colour which is contrasted with the black gradient portion of the background. Additionally, I made the z-index:1 so the text would be displayed above the image and other animations, followed by the use position relative to ensure that the computed position is relative to its normal position when changes are applied. ( 'left : 20px' element would change the positioning of text making it 20px from the left) */
+/* Within the text, I wrote ' hover over the fireworks to make them pause or refresh the page to see the stars in another view!' this was to guide the audient to either pause the firework interaction by hovering over any fireworks or allow users to be open to a change in a new formation of stars */
+
+.fireworks{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 2px;
+    background: #FFEFAD;
+    -webkit-mask: url('https://imgservices-1252317822.image.myqcloud.com/image/081320210201435/e9951400.png') right top no-repeat;
+    -webkit-mask-size: auto 190px;
+    animation: fireworks 4s steps(24) infinite, random 8s steps(1) infinite, random_color 1s infinite, ease-in-out;
+    animation-play-state: running;
+}
+
+/* This is the main firework interaction that is displayed automatically when the webpage is opened. Using the Webkit-mask, I used a range of star png sequences that I found on the website CodePen.io. The user XboxYan used this interaction on a plain canvas, which gave me the inspiration to involve that within my webpage design. The user got the image sequence of the starburst png from a Chinese website, which was uploaded on Codepen for everyone to use. With this in mind, I thought this would be the most appropriate and efficient interaction to establish in time for submission on my webpage. */
+/* The animation of each firework occurs for 4second, running until infinite as colours are changed and location is randomised. I think adding the small details of colour changes enhanced the overall experience as users are introduced to new colours automatically. This involves a change in colour through different stages of the animation, for example at 0% the colour might be blue while at 100% it might be yellow, this is done through the keyframes function. The 8s random steps are used to change the scaling of some fireworks, allowing the user to experience different depths in activity. However, the overall size control is managed through the WebKit mask size function which is 190 px. */
+
+.fireworks:hover{
+    animation-play-state: paused; 
+}
+/* Fireworks when hovered are paused. This occurs only with individual fireworks, so if you hover over only one firework, that specific firework comes at a pause and animation is stopped for a small duration until hover is passed.  */
+/* 
+Initially, I was going to make two buttons using the 'button id=...' tag (Stop & Start Button). However, after many trials and errors, the function didn't work, allowing me to use the backup option of the hover technique. The initial idea to allow users to control when they want to play and pause the firework animation would have truly elevated the final look of the webpage making it more accessible for everyone. This unforeseen failure led to much stress and anxiety of not knowing how to overcome it while still going with my initial idea. The hover function does do the job but it is very individualised and the hope of it working when the users hover over the item is unknown. I do think the initial button tactic would have worked better for the webpage but at the end of the day, I don't have full control over how functions work. */
+
+@keyframes fireworks{
+    0%{
+        -webkit-mask-position:0%;
+    }
+    50%,
+    100%{
+        -webkit-mask-position: 100% 100%;
+    }
+}
+
+/* This keyframe for the firework animation helps adjust the positioning of the fireworks as they go through different stages of bursting (as mentioned previously there are 24 steps for the full animation to occur, this helps divide when a specific portion of the animation occurs and what portion it occurs during). */
+@keyframes random{
+    0%{
+        transform:translate(0,0);
+    }
+    25% {
+        transform:translate(200%, 50%) scale(0.8);
+    }
+    50%{
+        transform:translate(80%, 80%) scale(1.2);
+    }
+    75%{
+        transform:translate(20%, 60%) scale (0.65);
+    }
+}
+
+/* This keyframe is for the position of the individual fireworks. As you can see, the firework positioning is randomised and the scale of the animation changes at different stages of the animation. */
+
+@keyframes random_color{
+    0%{
+        background-color: #00e1ff;
+    }
+    25%{
+        background-color: #ff009d;
+    }
+    50%{
+        background-color: #8c00ff;
+    }
+    75%{
+        background-color:#02ff89;
+    }
+    100%{
+        background-color:#ffe602;
+    }
+}
+/* This keyframe is for the firework's colour change. The randomised colour allows each firework to have a different beginning, middle, and end. As the animation occurs for 4 seconds, each percentage stage allows a new firework colour to appear. At 0%, 0 seconds the colour is blue and halfway through the transition the colour of the firework animation changes to purple which is 2 seconds occurring at the 50% mark. */
+
+
+.trees{
+    background-image: url("img/tree.png"); 
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: 25%;
+    margin-top: 7%;
+    background-size: 650px;
+    z-index: 5;
+    position: relative;
+  }
+
+/* This is the CSS for the tree which is located in the centre of the webpage. The position of the tree was quite difficult to get right as the other elements like the changing star's background on JS and the background itself kept getting in the way of the positioning. */
+/* For the tree png which I retrieved for Pixabay, the position was relative, similar to the text settings. This was to ensure I had full control over the placement of the image. I made the width and height 100% showing the full form of the tree with the use of the z-index as 5 to bring the png in front of all the other elements. In terms of sizing, I used the background-size element to make the size of the tree 650 px. */
+
+.star{
+    --twinkle-duration: "" ;
+    --twinkle-delay: "" ;
+    --star-size: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle infinite alternate;
+    animation-delay: var(--twinkle-delay);
+    animation-duration: var(--twinkle-duration);
+}
+/* Above is the CSS for the star animation that occurs simultaneously on a loop in the background. Though the stars are small and unnoticeable, I did put an incredible amount of details on them to add a unique element. The stars essentially change every time a user refreshes their page, however, the animation of the stars remains consistent and follows certain steps. The animation used for these stars was a twinkle to make them glimmer when paired with a semi-dark background. The duration, delay and sizing of this animation remain infinite. */
+
+/* As you can see the inner colour of the stars is white and the glimmer twinkling animation changes it to a bright and glowing colour. I made the width and height of this animation 2px to resemble small specs of stars and made the border-radius 50% to resemble a traditional star's night sky. */
+
+
+@keyframes twinkle{
+    from {
+        transform: scale (1);
+    }
+    to{
+        transform: scale (1.5);
+        box-shadow: 0 0 5px 0.5px rgb(255, 230, 0);
+    }
+}
+/* The keyframes function for this animation enables the colour of the stars to change from white to yellow unanimously. The keyframe also enables a change in scale size from  1 to 1.5. Post animation look also has a box shadow to add depth to the star look and make it appear like it's looking or moving in a certain direction. Essentially this frame focuses on more of the looks of the stars in the background, giving it a more unique look as the stars change in colour and depth at random moments. I do feel like the colour change isn't that visible unless in contrast with a dark background.*/
+ 
+/*@keyframes animate{
+    0% {
+      background-color: #000000;
+    }
+  
+    25%{
+        background-color: #10003a;
+    }
+
+    50%{
+        background-color: #130124;
+    }
+  
+    75%{
+        background-color: #010611;
+    }
+
+    100%{
+        background-color: #000000;
+    }
+  } */ 
+/* The commented keyframe above was for the colour-changing background which was replaced with the gradient black-purple background. I still kept this code here just in case I wanted to switch over because of a change of mind. I did like how the background colours changed smoothly when paired with the twinkling stars, tree, and fireworks. I just kept this as a backup option if a preference change occurred. */
+
